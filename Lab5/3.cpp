@@ -22,7 +22,11 @@ int main() {
     if (n<1) cout<<"Error\n";
     else {
         cout<<"Total (using tail recursion): "<<sumTail(n, 0);
-        cout<<"\nTotal (using non-tail recursion): "<<sumTail(n, 0);
+        cout<<"\nTotal (using non-tail recursion): "<<sumNonTail(n);
     }
+    /*
+    Tail Recursion is more memory efficient as compiler can optimise it into iterative loop because there is no need to keep previous function calls on stack
+    Non Tail recusion calculates total after the recusive call so n needs to be preserved for each function call on the call stack. this can get very memory inefficient specially when n is too large
+    */
     return 0;
 }
