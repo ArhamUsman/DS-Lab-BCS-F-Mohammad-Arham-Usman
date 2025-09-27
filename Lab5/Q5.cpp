@@ -111,7 +111,14 @@ class suduko{
             cout<<"Error! Cannot Solve the board\n";
         }
     }
-    suduko* operator=(sudu)
+    suduko* operator=(suduko& s1){
+        for (int i=0; i<size; i++){
+            for (int j=0; j<size; j++){
+                m[i][j]=s1.m[i][j];
+            }
+        }
+        return this;
+    }
     ~suduko(){
         if (m!=nullptr){
             for (int i=0; i<size; i++){
