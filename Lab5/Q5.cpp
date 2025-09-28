@@ -18,7 +18,7 @@ class suduko{
         int start_col=col-col%3;
         for (int i=0; i< 3; i++){
             for (int j=0; j<3; j++){
-                if (board[i][j]==num) return false;
+                if (board[i+start_row][j+start_col]==num) return false;
             }
         }
         return true;
@@ -41,7 +41,7 @@ class suduko{
                 if (solve(board)){
                     return true;    
                 }
-                board[row]=0;
+                board[row][col]=0;
             }
         }
         return false;
@@ -57,6 +57,7 @@ class suduko{
                 m[i][j]=0;
             }
         }
+        load_default();
     }
     suduko(int s){
         size=9;
@@ -104,20 +105,23 @@ class suduko{
         cout<<endl;
     }
     void solve(){
+        cout<<"Solving the board\n";
         if (size<=0) {
             cout<<"Error! Create a board first\n"; return;
         }
         if (!solve(m)){
             cout<<"Error! Cannot Solve the board\n";
+            return;
         }
+        displayBoard();
     }
-    suduko* operator=(suduko& s1){
+    suduko& operator=(suduko& s1){
         for (int i=0; i<size; i++){
             for (int j=0; j<size; j++){
                 m[i][j]=s1.m[i][j];
             }
         }
-        return this;
+        return *this;
     }
     ~suduko(){
         if (m!=nullptr){
@@ -138,7 +142,8 @@ int main() {
         suduko s2(1);
         s1=s2;
     }
-    s1.solve();
+    cout<<"Displaying unsolved board\n";
     s1.displayBoard();
+    s1.solve();
     return 0;
 }
