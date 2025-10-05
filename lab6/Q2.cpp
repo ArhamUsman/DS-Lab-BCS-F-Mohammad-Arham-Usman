@@ -42,7 +42,7 @@ class stack{
     } 
     void display(){
         cout<<"----------\n";
-        if (top<0) cout<<"Stack is empty\n";
+        if (top==nullptr) cout<<"Stack is empty\n";
         else{
             cout<<"Displaying stack contents\n";
             Node* temp=top;
