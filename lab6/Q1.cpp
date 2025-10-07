@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 class stack{
     int* arr, size, top;
     public:
