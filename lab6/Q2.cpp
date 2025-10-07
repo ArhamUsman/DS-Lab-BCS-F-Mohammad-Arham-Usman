@@ -46,9 +46,9 @@ class stack{
         else{
             cout<<"Displaying stack contents\n";
             Node* temp=top;
-            while (top!=nullptr){
-                cout<<top->data<<endl;
-                top=top->link;
+            while (temp!=nullptr){
+                cout<<temp->data<<endl;
+                temp=temp->link;
             }
         }
         cout<<"----------\n";
